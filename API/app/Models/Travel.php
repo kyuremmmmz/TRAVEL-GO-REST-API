@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Travel extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     protected $table = 'travel';
     protected $fillable = [
@@ -22,7 +23,7 @@ class Travel extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'name'
             ]
         ];
     }

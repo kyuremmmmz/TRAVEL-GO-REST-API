@@ -17,4 +17,13 @@ class Travel extends Model
         'description',
         'number_of_days'
     ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

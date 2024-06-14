@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('travel', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_public')->default(false);
+            $table->string('slug')->unique();
+            $table->string('name');
+            $table->text('description');
+            $table->unsignedInteger('number_of_days');//This one should be the foreign key
             $table->timestamps();
         });
     }

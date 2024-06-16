@@ -19,6 +19,8 @@ class EventServiceProviders extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+
     }
+
+
 }

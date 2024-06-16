@@ -9,4 +9,4 @@ Route::get('/', function () {
 });
 
 Route::get('v1/travel', [TravelController::class, 'index'])->name('travel');
-Route::get('travel/{travel:slug}/tours', [TourController::class, 'index']);
+Route::get('v1/travel/{travel:slug}/tours', [TourController::class, 'index']);

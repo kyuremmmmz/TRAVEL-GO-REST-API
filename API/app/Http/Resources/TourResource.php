@@ -14,13 +14,12 @@ class TourResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
-            'id'=>$this->id,
+       return [
+            'travel_id'=>$this->travel_id,
             'name'=>$this->name,
-            'description'=>$this->description,
-            'slug'=>$this->slug,
-            'number_of_days'=>$this->number_of_days,
-            'number_of_nights'=>$this->number_of_nights
-        ];
+            'starting_date'=>$this->starting_date,
+            'ending_date'=>$this->ending_date,
+            'price'=>$this->price,
+       ];
     }
 }

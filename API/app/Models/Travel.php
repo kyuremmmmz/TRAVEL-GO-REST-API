@@ -44,4 +44,9 @@ class Travel extends Model
 
         );
     }
+
+    public function gettingNightAtribbutes()
+    {
+        return $this->numberOfNights();
+    }
 }

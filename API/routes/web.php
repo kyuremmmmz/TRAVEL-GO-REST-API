@@ -7,9 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('guard')->group(
-    [Route::get('v1/travel', [TravelController::class, 'index'])
-
-    ]
-);
-
+Route::get('v1/travel', [TravelController::class, 'index'])->name('travel');

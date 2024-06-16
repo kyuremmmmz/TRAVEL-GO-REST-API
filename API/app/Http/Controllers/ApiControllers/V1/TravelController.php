@@ -12,7 +12,7 @@ class TravelController extends Controller
     public function index(Request $request)
     {
         $data = Travel::select('*')->where('is_public', true)->get();
-        return $data;
+        return response()->json($data);
     }
 
 

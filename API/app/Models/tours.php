@@ -13,6 +13,7 @@ class tours extends Model
     use HasFactory, HasUuids, Sluggable;
 
     protected $fillable = [
+        'travel_id',
         'name',
         'starting_date',
         'ending_date',

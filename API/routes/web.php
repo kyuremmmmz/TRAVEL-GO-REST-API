@@ -6,4 +6,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('v1/travel', [TravelController::class, 'index']);
+
+Route::prefix('guard')->group(
+    [Route::get('v1/travel', [TravelController::class, 'index'])
+
+    ]
+);
+

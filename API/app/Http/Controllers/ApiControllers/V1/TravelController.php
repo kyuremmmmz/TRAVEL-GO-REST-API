@@ -12,9 +12,11 @@ class TravelController extends Controller
 
     public function index(Request $request)
     {
-        $data = TourResource::collection(Travel::where('is_public', true)->get());
-        return response()->json($data);
+        $data = Travel::where('is_public', true)->paginate();
+        return TourResource::collection($data);
     }
+
+
 
 
 }

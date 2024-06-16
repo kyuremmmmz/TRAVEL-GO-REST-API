@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-    Route::get('v1/travel', [TravelController::class, 'index']);
+Route::get('v1/travel', [TravelController::class, 'index']);
 
 
 

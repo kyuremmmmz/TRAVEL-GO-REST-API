@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class tours extends Model
 {
-    use HasFactory, HasUuids, Sluggable;
+    use HasFactory, HasUuids;
 
     protected $fillable = [
         'travel_id',
@@ -28,13 +27,5 @@ class tours extends Model
         );
     }
 
-    public function sluggable(): array
-    {
-        return
-        [
-            'slug'=>[
-                'resources' =>'name'
-            ]
-        ];
-    }
+
 }

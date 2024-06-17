@@ -25,7 +25,7 @@ class TourListTest extends TestCase
     public function test_tour_price_is_shown_correctly(): void
     {
         $travel = Travel::factory()->create();
-        $tour = tours::factory()->create([
+        tours::factory()->create([
             'travel_id' => $travel->id,
             'price' => 123.45,
         ]);

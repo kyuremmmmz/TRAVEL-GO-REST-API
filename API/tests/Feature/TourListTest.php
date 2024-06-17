@@ -19,7 +19,7 @@ class TourListTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertJsonCount(1, 'data');
-        $response->assertJsonFragment(['id'=>$tour->id]);
+        $response->assertJsonFragment(['id'=>$tour->travel_id]);
     }
 
     public function test_tour_price_is_shown_correctly(): void
@@ -42,7 +42,7 @@ class TourListTest extends TestCase
     {
 
        $travel = Travel::factory()->create();
-       tours::factory()->create(['travel_id'=>$travel->id]);
+       tours::factory(16)->create(['travel_id'=>$travel->id]);
        $response =  $this->get('v1/travel/'.$travel->slug.'/Tour');
 
        $response->assertStatus(200);

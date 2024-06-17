@@ -42,7 +42,7 @@ class TourListTest extends TestCase
     {
 
        $travel = Travel::factory()->create();
-       tours::factory(16)->create(['travel_id'=>$travel->id]);
+       tours::factory()->create(['travel_id'=>$travel->id]);
        $response =  $this->get('v1/travel/'.$travel->slug.'/Tour');
 
        $response->assertStatus(200);

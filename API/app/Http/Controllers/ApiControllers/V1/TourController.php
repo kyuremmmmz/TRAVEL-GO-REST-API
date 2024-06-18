@@ -12,7 +12,8 @@ class TourController extends Controller
 {
     public function index(Travel $travel, Request $request)
     {
-
+        //DOCUMENTTTTT
+        //TODO: STUDY THIS CODE
         $tours = $travel->tours()
                 ->when($request->priceFrom, function($query) use ($request)
                 {

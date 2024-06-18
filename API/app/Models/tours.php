@@ -21,7 +21,7 @@ class tours extends Model
     ];
 
     public function price(): Attribute
-    {
+    {//TODO: STUDY THIS LOGIC
         return Attribute::make(
             get: fn ($value) => $value/100,
             set: fn ($value) => $value * 100

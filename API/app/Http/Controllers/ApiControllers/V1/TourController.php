@@ -12,14 +12,6 @@ class TourController extends Controller
 {
     public function index(Travel $travel, Request $request)
     {
-        $request->validate([
-            "priceFrom"=> "numeric|required",
-            'priceTo'=> 'numeric|required',
-            'dateFrom'=>'numeric|required',
-            'dateTo'=> 'numeric|required',
-            'sortTo'=> Rule::in(['price']),
-            'sortBy'=> Rule::in(['asc', 'desc']),
-        ]);
         //DOCUMENTTTTT
         //TODO: STUDY THIS CODE
         $tours = $travel->tours()

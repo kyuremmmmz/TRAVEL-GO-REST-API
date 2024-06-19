@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class TourController extends Controller
 {
@@ -14,7 +13,9 @@ class TourController extends Controller
     {
         //DOCUMENTTTTT
         //TODO: STUDY THIS CODE
-        $tours = $travel->tours()
+
+        //EXPLANATION: This code means that the when is called before the tour is executed amd it will execute the price
+                $tours = $travel->tours()
                 ->when($request->priceFrom, function($query) use ($request)
                 {
                     $query->where('price', '>=', $request->priceFrom * 100 );

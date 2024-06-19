@@ -33,6 +33,7 @@ class TourController extends Controller
                 })
                 ->when($request->sortBy && $request->sortOrder, function($query) use ($request)
                 {
+                    if (!in_array($request->sortOrder, ['asc', 'desc'])) return;
                     $query->orderBy($request->sortBy, $request->sortOrder);
                 })
                 ->orderBy('starting_date')

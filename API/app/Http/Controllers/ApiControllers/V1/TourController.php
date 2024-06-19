@@ -18,7 +18,7 @@ class TourController extends Controller
             'dateFrom'=>'numeric|required',
             'dateTo'=> 'numeric|required',
             'sortTo'=> Rule::in(['price']),
-            'sortBy'=> Rule::in(['asc', 'starting_date']),
+            'sortBy'=> Rule::in(['asc', 'desc']),
         ]);
         //DOCUMENTTTTT
         //TODO: STUDY THIS CODE
@@ -43,6 +43,15 @@ class TourController extends Controller
                 {
                     if (!in_array($request->sortOrder, ['asc', 'desc'])) return;
                     $query->orderBy($request->sortBy, $request->sortOrder);
+                })
+                ->when($request->all(), function($query) use ($request){
+                    if (!in_array($request->all(), ['desc', 'asc'])) {
+                            return response()->json([
+                                'message'=>'order not found'
+                            ])->setStatusCode(404);
+
+
+                    }
                 })
                 ->orderBy('starting_date')
                 ->paginate();

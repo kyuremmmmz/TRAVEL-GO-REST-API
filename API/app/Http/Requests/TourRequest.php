@@ -30,4 +30,13 @@ class TourRequest extends FormRequest
             'sortBy'=> 'asc', 'desc',
         ];
     }
+
+
+    public function messages(): array
+    {
+        return [
+            'sortBy'=> 'This Can be sort through price.',
+            'sortTo'=> 'This can be sort through asc and desc'
+        ];
+    }
 }

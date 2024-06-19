@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Travel extends Model
 {
     use HasFactory, Sluggable, HasUuids;
-
+    //TODO: study the logic here
     protected $table = 'travel';
     protected $fillable = [
         'is_public',
@@ -45,8 +45,5 @@ class Travel extends Model
         );
     }
 
-    public function gettingNightAtribbutes()
-    {
-        return $this->numberOfNights();
-    }
+
 }

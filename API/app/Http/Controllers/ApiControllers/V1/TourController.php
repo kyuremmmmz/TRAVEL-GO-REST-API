@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 
 class TourController extends Controller
 {
@@ -16,7 +16,9 @@ class TourController extends Controller
             "priceFrom"=> "numeric|required",
             'priceTo'=> 'numeric|required',
             'dateFrom'=>'numeric|required',
-            ''=> '',
+            'dateTo'=> 'numeric|required',
+            'sortTo'=> Rule::in(['price']),
+            'sortBy'=> Rule::in(['asc', 'starting_date']),
         ]);
         //DOCUMENTTTTT
         //TODO: STUDY THIS CODE

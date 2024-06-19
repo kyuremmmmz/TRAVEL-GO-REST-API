@@ -12,6 +12,12 @@ class TourController extends Controller
 {
     public function index(Travel $travel, Request $request)
     {
+        $request->validate([
+            "priceFrom"=> "numeric|required",
+            'priceTo'=> 'numeric|required',
+            'dateFrom'=>'numeric|required',
+            ''=> '',
+        ]);
         //DOCUMENTTTTT
         //TODO: STUDY THIS CODE
         $tours = $travel->tours()

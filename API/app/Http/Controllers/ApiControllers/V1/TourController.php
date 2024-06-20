@@ -7,6 +7,7 @@ use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use Illuminate\Http\Request;
 
+
 class TourController extends Controller
 {
     public function index(Travel $travel, Request $request)
@@ -15,7 +16,7 @@ class TourController extends Controller
         //TODO: STUDY THIS CODE
 
         //EXPLANATION: This code means that the when is called before the tour is executed amd it will execute the price
-                $tours = $travel->tours()
+        $tours = $travel->tours()
                 ->when($request->priceFrom, function($query) use ($request)
                 {
                     $query->where('price', '>=', $request->priceFrom * 100 );

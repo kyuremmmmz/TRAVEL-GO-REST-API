@@ -39,7 +39,7 @@ class TourController extends Controller
                     $query->orderBy($request->sortBy, $request->sortOrder);
                 })
                 ->when($request->all(), function($query) use ($request){
-                    if (!in_array($request->all(), ['desc', 'asc'])) {
+                    if (!in_array($query->all(), ['desc', 'asc'])) {
                             return response()->json([
                                 'message'=>'order not found'
                             ])->setStatusCode(404);

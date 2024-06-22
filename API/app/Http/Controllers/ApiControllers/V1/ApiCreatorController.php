@@ -20,6 +20,5 @@ class ApiCreatorController extends Controller
         $tours->create($tour);
 
         return dd($request->$tours->orderBy('name', 'asc')->get());
-
     }
 }

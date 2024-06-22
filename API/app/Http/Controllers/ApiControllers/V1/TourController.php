@@ -7,6 +7,7 @@ use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use Illuminate\Http\Request;
 
+
 class TourController extends Controller
 {
     public function index(Travel $travel, Request $request)
@@ -15,7 +16,7 @@ class TourController extends Controller
         //TODO: STUDY THIS CODE
 
         //EXPLANATION: This code means that the when is called before the tour is executed amd it will execute the price
-                $tours = $travel->tours()
+        $tours = $travel->tours()
                 ->when($request->priceFrom, function($query) use ($request)
                 {
                     $query->where('price', '>=', $request->priceFrom * 100 );
@@ -38,7 +39,7 @@ class TourController extends Controller
                     $query->orderBy($request->sortBy, $request->sortOrder);
                 })
                 ->when($request->all(), function($query) use ($request){
-                    if (!in_array($request->all(), ['desc', 'asc'])) {
+                    if (!in_array($query->all(), ['desc', 'asc'])) {
                             return response()->json([
                                 'message'=>'order not found'
                             ])->setStatusCode(404);

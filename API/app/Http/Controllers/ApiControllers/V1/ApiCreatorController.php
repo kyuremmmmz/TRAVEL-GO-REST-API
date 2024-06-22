@@ -4,33 +4,22 @@ namespace App\Http\Controllers\ApiControllers\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\tours;
-use App\Models\Travel;
 use Illuminate\Http\Request;
 
 class ApiCreatorController extends Controller
 {
-    public function createTours(Request $request, Travel $travel)
+    public function createTours(Request $request, tours $tours)
     {
-        $travels = $request->validate([
-            'name' =>'required|string',
-            'description' =>'required|string',
-            'price' =>'required|integer',
-            'number_of_days'=>'required|integer',
-            'is_public' =>'required|boolean',
+        $tour = $request->validate([
+            'name' =>'name',
+            'description' =>'description',
+            'price' =>'price',
+            'is_public' =>'required|boolean|true',
         ]);
 
-        $travel->create($travels);
+        $tours->create($tour);
 
-<<<<<<< HEAD
         return dd($request->$tours->orderBy('name', 'asc')->get());
-=======
-        return redirect(route('travel'));
 
->>>>>>> 64f0cdec4b8c7dd5a41663363079d7680e4190b2
-    }
-
-    public function view()
-    {
-        return view('travel/travelCreator');
     }
 }

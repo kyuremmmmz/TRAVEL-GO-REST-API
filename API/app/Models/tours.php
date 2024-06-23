@@ -24,7 +24,7 @@ class tours extends Model
     {//TODO: STUDY THIS LOGIC
         return Attribute::make(
             get: fn ($value) => $value/100,
-            set: fn ($value) => $value * 100 
+            set: fn ($value) => $value * 100
         );
     }
 

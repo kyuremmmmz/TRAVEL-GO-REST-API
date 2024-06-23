@@ -29,10 +29,10 @@
                 <td>{{$item->is_public}}</td>
                 <td>{{$item->description}}</td>
                 <td>
-                    <form action="{{route('delete', ['uid'=>$item])}}" method="post">
+                    <form action="{{route('destroy', ['travel'=>$item->number_of_days])}}" method="post">
                          @csrf
-                         @method('delete')
-                        <button type="submit" class=" btn btn-danger">Delete</button>
+                         @method('DELETE')
+                        <button class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>

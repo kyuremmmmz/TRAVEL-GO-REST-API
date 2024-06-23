@@ -47,7 +47,7 @@ class CreateUserCommand extends Command
 
         DB::transaction(function () use ($user, $role){
             $newUser = User::create($user);
-            $newUser->role()->attach($role->id);
+            $newUser->roles()->attach($role->user_id);
         });
 
 

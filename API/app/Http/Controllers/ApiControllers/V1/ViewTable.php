@@ -14,4 +14,12 @@ class ViewTable extends Controller
 
         return view('tablesView.tables', compact('data'));
     }
+
+    public function delete(Travel $travel)
+    {
+        
+        $travel->delete();
+
+        return redirect(route('tableview'))->with('success','Deleted successfully!');
+    }
 }

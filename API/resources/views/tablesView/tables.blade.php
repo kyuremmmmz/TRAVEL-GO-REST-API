@@ -29,7 +29,9 @@
                 <td>{{$item->is_public}}</td>
                 <td>{{$item->description}}</td>
                 <td>
-                    <form action="" method="POST">
+                    <form action="{{route('delete', ['uid'=>$item])}}" method="post">
+                         @csrf
+                         @method('delete')
                         <button type="submit" class=" btn btn-danger">Delete</button>
                     </form>
                 </td>

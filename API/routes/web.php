@@ -16,3 +16,4 @@ Route::get('travel/travelCreator', [ApiCreatorController::class, 'view'])->name(
 Route::post('v1/ApiCreatorController', [ApiCreatorController::class, 'createTours'])->name('Create');
 Route::put('v1/ApiCreatorController/{update}', [ApiCreatorController::class, 'update'])->name('Update');
 Route::get('tablesView/table', [ViewTable::class,'index'])->name('tableview');
+Route::delete('tablesView/table/{uid}', [ViewTable::class, 'delete'])->name('delete');

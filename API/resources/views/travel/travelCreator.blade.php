@@ -25,7 +25,7 @@
                 <input type="number" class="form-control" id="price" name="price" step="0.01" required>
             </div>
             <div class="form-group">
-                <label for="number_of_days">Price</label>
+                <label for="number_of_days">Number of  days</label>
                 <input type="number" class="form-control" id="number_of_days" name="number_of_days"  required>
             </div>
 
@@ -34,9 +34,39 @@
                 <input type="checkbox" class="form-check-input" id="is_public" name="is_public" value="1" checked>
                 <label class="form-check-label" for="is_public">Public</label>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                <button type="button" class="btn btn-primary mt-3" data-target="#view" data-toggle="modal">View Table</button>
+            </div>
+
         </form>
     </div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="view">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Heading -->
+                <div class="modal-header">
+                    <h1 class="modal-title">
+                        Update data
+                    </h1>
+                    <button class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <!-- MODAL BODY -->
+                <div class="modal-body">
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

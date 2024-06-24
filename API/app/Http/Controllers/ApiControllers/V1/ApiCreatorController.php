@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ApiControllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TravelResource;
 use App\Models\Travel;
 use Illuminate\Http\Request;
 
@@ -10,17 +11,11 @@ class ApiCreatorController extends Controller
 {
     public function createTours(Request $request, Travel $travel)
     {
-        $travels = $request->validate([
-            'name' =>'required|string',
-            'description' =>'required|string',
-            'price' =>'required|integer',
-            'number_of_days'=>'required|integer',
-            'is_public' =>'required|boolean',
-        ]);
 
-        $travel->create($travels);
 
-        return redirect(route('travel'));
+        $travels = $travel->create($request->validated());
+
+        return new TravelResource($travels);
 
     }
 
@@ -45,4 +40,5 @@ class ApiCreatorController extends Controller
 
         return redirect(route('travel', compact('update')));
     }
+
 }

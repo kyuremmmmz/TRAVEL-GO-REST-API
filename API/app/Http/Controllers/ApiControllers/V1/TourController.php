@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ApiControllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TourRequest;
 use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use Illuminate\Http\Request;
@@ -50,5 +51,12 @@ class TourController extends Controller
                 ->orderBy('starting_date')
                 ->paginate();
                 return TourResource::collection($tours);
+    }
+
+
+    public function store(Travel $travel, TourRequest $request)
+    {
+        $travel->tours()->create($request->validated());
+        return new TourResource($tour);
     }
 }

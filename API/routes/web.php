@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\ApiControllers\V1\ApiCreatorController;
+use App\Http\Controllers\ApiControllers\V1\Auth\LoginController;
 use App\Http\Controllers\ApiControllers\V1\TourController;
 use App\Http\Controllers\ApiControllers\V1\TravelController;
 use App\Http\Controllers\ApiControllers\V1\ViewTable;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApiControllers\V1\Auth\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,9 +18,10 @@ Route::put('v1/ApiCreatorController/{update}', [ApiCreatorController::class, 'up
 Route::get('tablesView/table', [ViewTable::class,'index'])->name('tableview');
 Route::delete('tablesView/table/{travel:number_of_days}', [ViewTable::class, 'Delete'])->name('destroy');
 
+Route::post('v1/TravelController', [TravelController::class, 'createTours'])->name('Create');
 
 Route::prefix('admin')->middleware('auth:sanctum')->group(function (){
-    Route::post('v1/ApiCreatorController', [TravelController::class, 'createTours'])->name('Create');
+    Route::post('login', [LoginController::class, '__invoke'])->name('login');
 });
 
-Route::post('/login', [LoginController::class, '__invoke']);
+

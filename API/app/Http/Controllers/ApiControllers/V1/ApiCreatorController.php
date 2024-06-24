@@ -9,13 +9,6 @@ use Illuminate\Http\Request;
 
 class ApiCreatorController extends Controller
 {
-    public function createTours(Request $request, Travel $travel)
-    {
-        $travels = $travel->create($request->validated());
-
-        return new TravelResource($travels);
-
-    }
 
     public function view()
     {

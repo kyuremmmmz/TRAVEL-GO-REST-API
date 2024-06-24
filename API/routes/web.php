@@ -21,7 +21,8 @@ Route::delete('tablesView/table/{travel:number_of_days}', [ViewTable::class, 'De
 Route::post('v1/', [TravelController::class, 'createTours'])->name('Create');
 
 Route::prefix('admin')->middleware('auth:sanctum')->group(function (){
-    Route::get('login', [LoginController::class, '__invoke'])->name('login');
+
 });
 
 
+Route::post('login', [LoginController::class, '__invoke'])->name('login');

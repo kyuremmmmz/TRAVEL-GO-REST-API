@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiControllers\V1\ApiCreatorController;
+use App\Http\Controllers\ApiControllers\V1\LoginController;
 use App\Http\Controllers\ApiControllers\V1\TourController;
 use App\Http\Controllers\ApiControllers\V1\TravelController;
 use App\Http\Controllers\ApiControllers\V1\ViewTable;
@@ -21,3 +22,5 @@ Route::delete('tablesView/table/{travel:number_of_days}', [ViewTable::class, 'De
 Route::prefix('admin')->middleware('auth:sanctum')->group(function (){
     Route::post('v1/ApiCreatorController', [TravelController::class, 'createTours'])->name('Create');
 });
+
+Route::post('loginController', [LoginController::class, '__invoke'])->name('Login');

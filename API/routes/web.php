@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\ApiControllers\V1\ApiCreatorController;
-use App\Http\Controllers\ApiControllers\V1\LoginController;
 use App\Http\Controllers\ApiControllers\V1\TourController;
 use App\Http\Controllers\ApiControllers\V1\TravelController;
 use App\Http\Controllers\ApiControllers\V1\ViewTable;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiControllers\V1\Auth\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,4 +23,4 @@ Route::prefix('admin')->middleware('auth:sanctum')->group(function (){
     Route::post('v1/ApiCreatorController', [TravelController::class, 'createTours'])->name('Create');
 });
 
-Route::post('loginController', [LoginController::class, '__invoke'])->name('Login');
+Route::post('/login', [LoginController::class, '__invoke']);

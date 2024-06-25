@@ -15,6 +15,7 @@
         <th>UID</th>
         <th>Name</th>
         <th>Is Public</th>
+        <th>Description</th>
         <th>Edit</th>
         <th>Delete</th>
         <tbody>
@@ -28,6 +29,7 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->is_public}}</td>
                 <td>{{$item->description}}</td>
+                <td><a href="" class="btn btn-primary">Edit</a></td>
                 <td>
                     <form action="{{route('destroy', ['travel'=>$item->number_of_days])}}" method="post">
                          @csrf

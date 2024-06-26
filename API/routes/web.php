@@ -26,3 +26,5 @@ Route::prefix('admin')->middleware('auth:sanctum')->group(function (){
 
 
 Route::post('login', [LoginController::class, '__invoke'])->name('login');
+Route::post('v1/travel/TourController', [TourController::class, 'store'])->name('ToursCreate');
+Route::get('Tour/TourResources', [TourController::class, 'Tignan'])->name('view');

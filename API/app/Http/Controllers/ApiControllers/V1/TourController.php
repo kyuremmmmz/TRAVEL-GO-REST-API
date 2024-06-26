@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TourRequest;
 use App\Http\Requests\TourRequest2;
 use App\Http\Resources\TourResource;
+use App\Models\tours;
 use App\Models\Travel;
 use Illuminate\Http\Request;
 
@@ -55,9 +56,14 @@ class TourController extends Controller
     }
 
 
-    public function store(Travel $travel, TourRequest2 $request)
+    public function store( TourRequest2 $request)
     {
-        $tour =  $travel->tours()->create($request->validated());
+        $tour =  tours::create($request->validated());
         return new TourResource($tour);
+    }
+
+    public function Tignan()
+    {
+        return view('Tour.TourResources');
     }
 }

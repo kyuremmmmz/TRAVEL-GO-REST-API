@@ -22,7 +22,7 @@ class TourRequest2 extends FormRequest
     public function rules(): array
     {
         return [
-            'id'=>'required | primary:id',
+            'travel_id'=> 'required | string',
             'name'=>'required | string',
             'starting_date'=> 'required',
             'ending_date'=>'required',

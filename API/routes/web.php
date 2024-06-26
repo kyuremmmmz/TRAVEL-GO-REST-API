@@ -18,10 +18,10 @@ Route::put('v1/ApiCreatorController/{update}', [ApiCreatorController::class, 'up
 Route::get('tablesView/table', [ViewTable::class,'index'])->name('tableview');
 Route::delete('tablesView/table/{travel:number_of_days}', [ViewTable::class, 'Delete'])->name('destroy');
 
-Route::post('v1/TravelController', [TravelController::class, 'createTours'])->name('Create');
+
 
 Route::prefix('admin')->middleware('auth:sanctum')->group(function (){
-        Route::post('travels', [TravelController::class, 'store']);
+    Route::post('travels', [TravelController::class, 'createTours'])->name('Create');
 });
 
 

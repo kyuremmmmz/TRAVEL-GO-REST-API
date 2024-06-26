@@ -32,6 +32,14 @@ class TourRequest extends FormRequest
     }
 
 
+    public function rulesOriginal(): array
+    {
+        return [
+            ''=> '',
+        ];
+    }
+
+
     public function messages(): array
     {
         return [

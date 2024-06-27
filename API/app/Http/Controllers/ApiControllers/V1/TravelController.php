@@ -17,13 +17,6 @@ class TravelController extends Controller
         return TravelResource::collection($data);
     }
 
-    public function data(Request $request)
-    {
-        $data = Travel::where('id')->get();
-
-        return redirect()->route('');
-    }
-
     public function createTours(TravelRequest $request, Travel $travell)
     {
         $tr = $travell->create($request->validated());
@@ -31,10 +24,10 @@ class TravelController extends Controller
 
     }
 
-    public function update(Request $request, Travel $travel)
+    public function update(TravelRequest $request, Travel $travel)
     {
-        $tr = $travel->update($request->validated());
-        return redirect(route('tableview', ['update'=>$tr]))->with('success','Updated Successfully!');
+        $travel->update($request->validated());
+        return redirect(route('tableview'))->with('success','Updated Successfully!');
     }
 
 

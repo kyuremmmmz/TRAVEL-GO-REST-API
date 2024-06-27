@@ -38,9 +38,42 @@
                     </form>
                 </td>
             </tr>
-            @endforeach
+
         </tbody>
     </table>
+    <div class="modal fade" id="modal{{$item->id}}" tabindex="-1" aria-labelledby="modallabel{{$item->id}}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modallabel{{$item->id}}">Update</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('Update', ['travel' => $item]) }}" method="post">
+                        @csrf
+                        @method('post')
+                        <div class="mb-3">
+                            <label for="name{{$item->id}}" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name{{$item->id}}" name="name{{$item->id}}" value="{{$item->name}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="is_public{{$item->id}}" class="form-label">Is Public</label>
+                            <input type="text" class="form-control" id="is_public{{$item->id}}" name="is_public" value="{{$item->is_public}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description{{$item->id}}" class="form-label">Description</label>
+                            <textarea class="form-control" id="description{{$item->id}}" name="description">{{$item->description}}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    @endforeach
+
+
+    <!-- MODAL -->
 </div>
 </body>
 </html>

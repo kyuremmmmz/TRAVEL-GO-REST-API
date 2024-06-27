@@ -14,7 +14,7 @@ Route::get('/', function () {
 Route::get('v1/travel', [TravelController::class, 'index'])->name('travel');
 Route::get('v1/travel/{travel:slug}/Tour', [TourController::class, 'index']);
 Route::get('travel/travelCreator', [ApiCreatorController::class, 'view'])->name('view');
-Route::put('v1/ApiCreatorController/{update}', [TravelController::class, 'update'])->name('Update');
+Route::post('tablesView/table/{travel:id}', [TravelController::class, 'update'])->name('Update');
 Route::get('tablesView/table', [ViewTable::class,'index'])->name('tableview');
 Route::delete('tablesView/table/{travel:number_of_days}', [ViewTable::class, 'Delete'])->name('destroy');
 

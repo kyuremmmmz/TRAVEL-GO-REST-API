@@ -68,7 +68,7 @@ class TourController extends Controller
         return new TourResource($tour);
     }
 
-    public function destroy( TourRequest $request, tours $tour)
+    public function destroy(tours $tour)
     {
         $tour->delete();
         return new TourResource($tour);

@@ -62,6 +62,18 @@ class TourController extends Controller
         return new TourResource($tour);
     }
 
+    public function update(TourRequest2 $request, tours $tour)
+    {
+        $tour->update($request->validated());
+        return new TourResource($tour);
+    }
+
+    public function destroy( TourRequest $request, tours $tour)
+    {
+        $tour->delete();
+        return new TourResource($tour);
+    }
+
     public function Tignan()
     {
         return view('Tour.TourResources');

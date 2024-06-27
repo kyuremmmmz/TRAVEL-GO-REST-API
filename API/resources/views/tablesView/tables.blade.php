@@ -29,7 +29,7 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->is_public}}</td>
                 <td>{{$item->description}}</td>
-                <td><button id="" name="" class="btn btn-primary">Edit</a></td>
+                <td><button id="modal" data-bs-target="#modal{{$item->id}}" data-bs-toggle="modal"  class="btn btn-primary">Edit</a></td>
                 <td>
                     <form action="{{route('destroy', ['travel'=>$item->number_of_days])}}" method="post">
                          @csrf

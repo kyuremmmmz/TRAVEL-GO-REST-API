@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="is_public{{$item->id}}" class="form-label">Is Public</label>
-                                        <input type="checkbox" class="form-check-input" id="is_public{{$item->is_public}}" name="is_public" {{$item->is_public ? 'checked' : ''}} required>
+                                        <input type="number" class="form-control" id="is_public{{$item->is_public}}" name="is_public"  value="{{$item->is_public}}" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                 </form>

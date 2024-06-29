@@ -22,10 +22,9 @@ class TravelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>'required|unique:travel',
-            'description' =>'required|string',
-            'price' =>'required|integer',
-            'number_of_days'=>'required|integer',
+            'name' =>'required',
+            'description' =>'required',
+            'number_of_days'=>'required',
             'is_public' =>'required|boolean',
         ];
     }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TourRequest extends FormRequest
+class TourRequest2 extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,24 +21,12 @@ class TourRequest extends FormRequest
      */
     public function rules(): array
     {
-        return  [
-            "priceFrom"=> "numeric|required",
-            'priceTo'=> 'numeric|required',
-            'dateFrom'=>'numeric|required',
-            'dateTo'=> 'numeric|required',
-            'sortTo'=> 'price',
-            'sortBy'=> 'asc', 'desc',
-        ];
-    }
-
-
-    
-
-    public function messages(): array
-    {
         return [
-            'sortBy'=> 'This Can be sort through price.',
-            'sortTo'=> 'This can be sort through asc and desc'
+            'travel_id'=> 'required | string',
+            'name'=>'required | string',
+            'starting_date'=> 'required',
+            'ending_date'=>'required',
+            'price'=>'required | integer'
         ];
     }
 }

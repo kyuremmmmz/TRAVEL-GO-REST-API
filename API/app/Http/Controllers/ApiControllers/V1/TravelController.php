@@ -16,11 +16,19 @@ class TravelController extends Controller
         $data = Travel::where('is_public', true)->paginate();
         return TravelResource::collection($data);
     }
+
     public function createTours(TravelRequest $request, Travel $travell)
     {
-        $travell->create($request->validated());
-        return redirect()->route('view')->with('status', 'success');
+        $tr = $travell->create($request->validated());
+        return new TravelResource($tr);
 
+    }
+
+    public function update(TravelRequest $request, Travel $travel)
+    {
+        $data = $request->validated();
+        $travel->update($data);
+        return redirect(route('tableview', compact('travel')))->with('success','Updated Successfully!');
     }
 
 

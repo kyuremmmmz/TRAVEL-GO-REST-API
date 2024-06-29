@@ -26,8 +26,7 @@ class TravelController extends Controller
 
     public function update(TravelRequest $request, Travel $travel)
     {
-        $data = $request->validated();
-        $travel->update($data);
+        $travel->update($request->validated());
         return redirect(route('tableview', compact('travel')))->with('success','Updated Successfully!');
     }
 

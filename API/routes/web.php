@@ -16,7 +16,7 @@ Route::get('v1/travel/{travel:slug}/Tour', [TourController::class, 'index']);
 Route::get('travel/travelCreator', [ApiCreatorController::class, 'view'])->name('view');
 Route::get('tablesView/table', [ViewTable::class,'index'])->name('tableview');
 Route::delete('tablesView/table/{travel}', [ViewTable::class, 'Delete'])->name('destroy');
-
+Route::put('tablesView/table/{travel:id}', [TravelController::class, 'update'])->name('Update');
 
 
 

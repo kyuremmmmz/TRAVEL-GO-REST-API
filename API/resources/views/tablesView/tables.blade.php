@@ -58,24 +58,24 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{ route('Update', ['travel' => $item->name]) }}" method="post">
+                                <form action="{{ route('Update', ['travel' => $item->id]) }}" method="post">
                                     @csrf
-                                    @method('post')
+                                    @method('put')
                                     <div class="mb-3">
                                         <label for="name{{$item->id}}" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name{{$item->name}}" name="name" value="{{$item->name}}" required>
+                                        <input type="text" class="form-control" id="name{{$item->id}}" name="name" value="{{$item->name}}" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="description{{$item->id}}" class="form-label">Description</label>
-                                        <textarea class="form-control" id="description{{$item->description}}" name="description" required>{{$item->description}}</textarea>
+                                        <textarea class="form-control" id="description{{$item->id}}" name="description" required>{{$item->description}}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="price{{$item->id}}" class="form-label">Price</label>
-                                        <input type="number" class="form-control" id="price{{$item->price}}" name="price" value="{{$item->price}}" required>
+                                        <input type="number" class="form-control" id="price{{$item->id}}" name="price" value="{{$item->price}}" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="number_of_days{{$item->id}}" class="form-label">Number of Days</label>
-                                        <input type="number" class="form-control" id="number_of_days{{$item->number_of_days}}" name="number_of_days" value="{{$item->number_of_days}}" required>
+                                        <input type="number" class="form-control" id="number_of_days{{$item->id}}" name="number_of_days" value="{{$item->number_of_days}}" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="is_public{{$item->id}}" class="form-label">Is Public</label>

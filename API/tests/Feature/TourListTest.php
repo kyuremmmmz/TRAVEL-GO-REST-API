@@ -19,7 +19,7 @@ class TourListTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertJsonCount(1, 'data');
-        $response->assertJsonFragment(['id'=>$tour->travel_id]);
+        $response->assertJsonFragment(['id'=>$tour->id]);
     }
 
     public function test_tour_price_is_shown_correctly(): void

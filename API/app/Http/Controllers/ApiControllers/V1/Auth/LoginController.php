@@ -12,6 +12,11 @@ class LoginController extends Controller
     /**
      * Handle the incoming request.
      */
+    public function csrf()
+    {
+        return csrf_token();
+    }
+
     public function __invoke(LoginRequest $request)
     {
 
@@ -25,9 +30,11 @@ class LoginController extends Controller
         }
 
         $device = substr($request->userAgent() ??'',0,255);
-
+        $csrf = csrf_token();
+        $accesToken = $credentials->createToken($device)->plainTextToken;
         return response()->json([
-            'access_token'=> $credentials->createToken($device)->plainTextToken,
+            'csrf' =>  $csrf,
+            'access_token'=> $accesToken,
         ])->setStatusCode(200);
     }
 }

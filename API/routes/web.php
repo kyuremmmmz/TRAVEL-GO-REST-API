@@ -20,9 +20,9 @@ Route::delete('tablesView/table/{travel}', [ViewTable::class, 'Delete'])->name('
 
 
 
-
+Route::get('index/csrftoken', [LoginController::class, 'csrf']);
 Route::post('travels', [TravelController::class, 'createTours'])->name('Create');
-Route::post('login', [LoginController::class, '__invoke'])->name('login');
+Route::post('Auth/login/csrf', [LoginController::class, '__invoke'])->middleware('validate_csrf_token');
 Route::post('v1/travel/TourController', [TourController::class, 'store'])->name('ToursCreate');
 Route::get('Tour/TourResources', [TourController::class, 'Tignan'])->name('view');
 Route::post('v1/ApiControllers/TravelController/{travel:name}', [TravelController::class, 'update'])->name('Update');

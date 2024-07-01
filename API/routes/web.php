@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\ApiControllers\V1\Admin\TravelController;
 use App\Http\Controllers\ApiControllers\V1\ApiCreatorController;
 use App\Http\Controllers\ApiControllers\V1\Auth\LoginController;
 use App\Http\Controllers\ApiControllers\V1\TourController;
-use App\Http\Controllers\ApiControllers\V1\TravelController;
 use App\Http\Controllers\ApiControllers\V1\ViewTable;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +18,12 @@ Route::get('tablesView/table', [ViewTable::class,'index'])->name('tableview');
 Route::delete('tablesView/table/{travel}', [ViewTable::class, 'Delete'])->name('destroy');
 
 
-
+Route::prefix('admin')->group(function ()
+{
+    Route::post('travels', [TravelController::class, 'createTours'])->name('Create');
+});
 
 Route::get('index/csrftoken', [LoginController::class, 'csrf']);
-Route::post('travels', [TravelController::class, 'createTours'])->name('Create');
 Route::post('Auth/login/csrf', [LoginController::class, '__invoke'])->middleware('validate_csrf_token');
 Route::post('v1/travel/TourController', [TourController::class, 'store'])->name('ToursCreate');
 Route::get('Tour/TourResources', [TourController::class, 'Tignan'])->name('view');

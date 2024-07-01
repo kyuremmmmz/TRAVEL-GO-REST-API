@@ -78,4 +78,9 @@ class TourController extends Controller
     {
         return view('Tour.TourResources');
     }
+
+    public function tables()
+    {
+        return view('TourTables.TourTable');
+    }
 }

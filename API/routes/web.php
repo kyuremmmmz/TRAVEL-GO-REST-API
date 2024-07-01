@@ -26,4 +26,4 @@ Route::post('Auth/login/csrf', [LoginController::class, '__invoke'])->middleware
 Route::post('v1/travel/TourController', [TourController::class, 'store'])->name('ToursCreate');
 Route::get('Tour/TourResources', [TourController::class, 'Tignan'])->name('view');
 Route::post('v1/ApiControllers/TravelController/{travel:name}', [TravelController::class, 'update'])->name('Update');
-
+Route::get('TourTables/TourTable', [TourController::class, 'tables'])->name('viewTables');

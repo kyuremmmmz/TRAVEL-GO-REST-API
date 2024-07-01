@@ -20,17 +20,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $index = 1;
+                    @endphp
+                    @foreach ($tours as $item)
                     <tr>
-                        <td>Data 1</td>
+                        <td>{{$item -> id}}</td>
                         <td>Data 2</td>
                         <td>Data 3</td>
                     </tr>
-                    <tr>
-                        <td>Data 4</td>
-                        <td>Data 5</td>
-                        <td>Data 6</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
+                    @endforeach
                 </tbody>
             </table>
         </div>

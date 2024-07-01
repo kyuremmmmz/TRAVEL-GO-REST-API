@@ -76,11 +76,19 @@ class TourController extends Controller
 
     public function Tignan()
     {
+
         return view('Tour.TourResources');
     }
 
     public function tables()
     {
-        return view('TourTables.TourTable');
+        $tours = tours::orderBy('name','asc')->get();
+        return view('TourTables.TourTable', compact('tours'));
+    }
+
+    public function apiView(tours $tours)
+    {
+        $tours->orderBy('name','asc')->paginate();
+        return TourResource::collection($tours);
     }
 }

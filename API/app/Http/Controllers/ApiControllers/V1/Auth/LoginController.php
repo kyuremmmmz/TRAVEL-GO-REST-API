@@ -17,7 +17,7 @@ class LoginController extends Controller
         return csrf_token();
     }
 
-    public function titi(LoginRequest $request, $id)
+    public function __invoke(LoginRequest $request, $id)
     {
 
         $credentials = User::where('email', $request->email)->get();

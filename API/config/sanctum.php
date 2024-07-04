@@ -80,7 +80,5 @@ return [
         'encrypt_cookies' => Illuminate\Cookie\Middleware\EncryptCookies::class,
 
     ],
-    "Accept"=>"application/json"
-
 
 ];

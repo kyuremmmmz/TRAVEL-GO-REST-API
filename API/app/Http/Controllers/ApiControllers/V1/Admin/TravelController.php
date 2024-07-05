@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ApiControllers\V1;
+namespace App\Http\Controllers\ApiControllers\V1\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TravelRequest;
@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 
 class TravelController extends Controller
 {
-
     public function index(Request $request)
     {
         $data = Travel::where('is_public', true)->paginate();
@@ -30,9 +29,6 @@ class TravelController extends Controller
         return redirect(route('tableview', compact('travel')))->with('success','Updated Successfully!');
     }
 
-
-
-
-
-
 }
+
+

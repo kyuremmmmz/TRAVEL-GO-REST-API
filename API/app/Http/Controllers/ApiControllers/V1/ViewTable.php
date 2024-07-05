@@ -24,4 +24,9 @@ class ViewTable extends Controller
 
         return redirect(route('tableview'))->with('success','Deleted successfully!');
     }
+
+    public function showTemp()
+    {
+        return view ('TourTables.TourTable');
+    }
 }

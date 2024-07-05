@@ -13,16 +13,15 @@ class LoginController extends Controller
     /**
      * Handle the incoming request.
      */
-<<<<<<< HEAD
+
     public function __invoke(LoginRequest $request, Request $requestt)
-=======
+
     public function csrf()
     {
         return csrf_token();
     }
 
     public function __invoke(LoginRequest $request, $id)
->>>>>>> d15075b4e06acb5a6df981cf85da664335a3133c
     {
 
         $credentials = User::where('email', $request->email)->get();
@@ -38,10 +37,10 @@ class LoginController extends Controller
         $csrf = csrf_token();
         $accesToken = $credentials->createToken($device)->plainTextToken;
         return response()->json([
-<<<<<<< HEAD
+
             'access_token'=> $credentials->createToken($device)->plainTextToken,
             ])->setStatusCode(200);
-=======
+
             'csrf' =>  $csrf,
             'data' => $credentials,
             'access_token'=> $accesToken,

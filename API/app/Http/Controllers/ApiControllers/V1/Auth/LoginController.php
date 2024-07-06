@@ -6,28 +6,38 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
+use function Laravel\Prompts\select;
 
 class LoginController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, User $user)
+    public function __invoke(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        $credentials = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
-        if (! $credentials || ! Hash::check($credentials->password, $credentials->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
-                'error' => 'credentials doesnt match'
-            ])->setStatusCode(400);
-
+                'error' => 'Credentials do not match'
+            ], 400);
         }
 
-        $device = substr($request->userAgent() ??'',0,255);
+        $device = substr($request->userAgent() ?? '', 0, 355);
+        $token = $user->createToken($device)->plainTextToken;
+        $name = User::select('name', 'email')->where('email', $request->email)->first();
 
         return response()->json([
-            'access_token'=> $user->createToken($device)->plainTextToken,
+            'access_token' => $token,
+            'data'=> $name
         ]);
     }
 }
+

@@ -18,8 +18,10 @@ Route::get('/user', function (Request $request) {
     Route::delete('tablesView/table/{travel}', [ViewTable::class, 'Delete'])->name('destroy');
 
 
+    Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
+        Route::post('travels', [TravelController::class, 'createTours'])->name('Create');
+    });
 
-    Route::post('travels', [TravelController::class, 'createTours'])->name('Create')->middleware('auth:sanctum');
 
     Route::post('login', [LoginController::class, '__invoke']);
     Route::get('index/csrftoken', [LoginController::class, 'csrf']);

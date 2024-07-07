@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         $credentials = User::where('email', $request->email)->get();
 
-        if (! $credentials || ! Hash::check($credentials->password, $credentials->password)) {
+        if (! $credentials || ! Hash::check($request->password, $credentials->password)) {
             return response()->json([
                 'error' => 'Credentials do not match'
             ])->setStatusCode(422);

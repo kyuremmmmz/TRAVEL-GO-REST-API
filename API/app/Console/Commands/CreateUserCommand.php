@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\roles;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -27,13 +28,14 @@ class CreateUserCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(LoginRequest $request)
     {
         $user['name'] = $this->ask('Enter the name of a user');
         $user['email'] = $this->ask('Enter the email of a user');
         $user['password'] = Hash::make($this->secret('Password of a user'));
 
         $roleName = $this->choice('Choose the role of a user:', ['Admin', 'Editor', 1]);
+
 
         $role = roles::where('name', $roleName)->first();
         if(!$role)

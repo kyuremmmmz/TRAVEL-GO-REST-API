@@ -7,9 +7,7 @@ use App\Http\Controllers\ApiControllers\V1\TourController;
 use App\Http\Controllers\ApiControllers\V1\ViewTable;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('v1/travel', [TravelController::class, 'index'])->name('travel');
 Route::get('v1/travel/{travel:slug}/Tour', [TourController::class, 'index']);
@@ -19,7 +17,7 @@ Route::delete('tablesView/table/{travel}', [ViewTable::class, 'Delete'])->name('
 
 
 
-Route::post('travels', [TravelController::class, 'createTours'])->name('Create')->middleware('auth:sanctum');
+Route::post('v1/admin/TravelController', [TravelController::class, 'createTours'])->name('Creator');
 
 Route::post('login', [LoginController::class, '__invoke']);
 Route::get('index/csrftoken', [LoginController::class, 'csrf']);

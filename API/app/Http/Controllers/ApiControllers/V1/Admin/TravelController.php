@@ -18,8 +18,8 @@ class TravelController extends Controller
 
     public function createTours(TravelRequest $request, Travel $travell)
     {
-        $tr = $travell->create($request->validated());
-        return new TravelResource($tr);
+        $travell->create($request->validated());
+        return redirect(route('view'));
 
     }
 

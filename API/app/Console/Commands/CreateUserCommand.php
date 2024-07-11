@@ -2,9 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Requests\LoginRequest;
 use App\Models\roles;
 use App\Models\User;
+use App\Models\user_roles;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,7 @@ class CreateUserCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(LoginRequest $request)
+    public function handle()
     {
         $user['name'] = $this->ask('Enter the name of a user');
         $user['email'] = $this->ask('Enter the email of a user');

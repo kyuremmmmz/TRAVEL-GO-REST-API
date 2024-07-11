@@ -9,9 +9,10 @@
 <body>
     <div class="container mt-5">
         <h2>Product Form</h2>
-        <form action="{{route('Create')}}" method="POST">
-            @method('POST')
+        <form action="{{route('Creator')}}" method="POST">
             @csrf
+            @method('POST')
+
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" required>

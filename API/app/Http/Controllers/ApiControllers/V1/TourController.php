@@ -63,7 +63,7 @@ class TourController extends Controller
 
     public function update(TourRequest2 $request, tours $tour)
     {
-        $tour->tours()->create($request->validated());
+        $tour->update($request->validated());
         return new TourResource($tour);
     }
 

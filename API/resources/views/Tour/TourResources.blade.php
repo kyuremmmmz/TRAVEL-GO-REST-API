@@ -10,8 +10,9 @@
     <div class="container mt-5">
         <h2>Product Form</h2>
         <form action="{{route('ToursCreate')}}" method="POST">
-            @method('POST')
             @csrf
+            @method('POST')
+
             <div class="form-group">
                 <label for="travel_id">Travel ID</label>
                 <input type="text" class="form-control" id="travel_id" name="travel_id" required>

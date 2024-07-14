@@ -10,7 +10,9 @@
     <div class="container mt-5">
         <h2>Product Form</h2>
         <form action="{{route('Creator')}}" method="POST">
+            {{ csrf_token() }}
             @csrf
+            {{ csrf_field() }}
             @method('POST')
 
             <div class="form-group">

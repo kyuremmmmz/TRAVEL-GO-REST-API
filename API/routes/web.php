@@ -7,7 +7,9 @@ use App\Http\Controllers\ApiControllers\V1\TourController;
 use App\Http\Controllers\ApiControllers\V1\ViewTable;
 use Illuminate\Support\Facades\Route;
 
-
+Route::get('/', function () {
+    return view('dashboard');
+});
 
 Route::get('v1/travel', [TravelController::class, 'index'])->name('travel');
 Route::get('v1/travel/{travel:slug}/Tour', [TourController::class, 'index']);

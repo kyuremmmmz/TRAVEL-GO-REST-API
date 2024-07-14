@@ -18,6 +18,7 @@ class TravelController extends Controller
 
     public function createTours(TravelRequest $request, Travel $travell)
     {
+        csrf_token();
         $travell->create($request->validated());
         return redirect(route('view'));
 
